@@ -45,7 +45,7 @@ ROS package for lidar and camera fusion
    LidarToCameraMat:
      该4x4矩阵为通过相机与激光雷达转换矩阵标定得到的Average translation和Final rotation。
      例如：
-     Average translation = [0.120955, -0.00949704, 0.00527886]'
+     Average translation = [0.120955, -0.00949704, 0.00527886]T
                       [-0.0382366, -0.999206, -0.0111684]
      Final rotation = [-0.0542659, 0.0132364, -0.998439]
                       [0.997794, -0.0375708, -0.054729]
