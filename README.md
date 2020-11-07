@@ -68,28 +68,29 @@ ROS package for lidar and camera fusion
 
 ## 附图
    ```Python
-                 ^ z
-                 |      Initial rotation:
-                 |      [0 -1  0]
-             \   |   /  [0  0 -1] => (pi/2, -pi/2, 0)
-              \  |  /   [1  0  0]
-               \ | /    Final rotation = Average rotation * Initial rotation
-                \|/     
-                 █————————> x
-              forward
-                cam
+                                 \     /    Initial rotation:
+                                  \ |z/     [0 -1  0]
+                                   \|/      [0  0 -1]
+                                    █————x  [1  0  0]
+                                 forward    => (pi/2, -pi/2, 0) Euler angles
+                                   cam #1   Final rotation = Average rotation * Initial rotation
  
-                 ^ x
-                 |
-                 |
-               █████
-             ███   ███
-            ██       ██
-    y <————██    .z   ██
-            ██       ██
-             ███   ███
-               █████
-               lidar
+                                  █████
+                                ██     ██
+                  |x          ██    |x   ██
+  [1  0  0]       |          ██     |     ██                 [-1 0  0]
+  [0  0 -1]  z————█ cam #4   █ y————.z     █  cam #2 █————z  [0  0 -1]
+  [0  1  0]                  ██           ██         |       [0 -1  0]
+  => (pi/2, 0, 0)             ██         ██          |x      => (-pi/2, 0, pi)
+                                ██     ██
+                                  █████
+                                  lidar
+
+                               x————█       [0  1  0]
+                                    |       [0  0 -1]
+                                    |z      [-1 0  0]
+                                   cam #3   => (pi/2, pi/2, 0)
+
    ```
 
 
