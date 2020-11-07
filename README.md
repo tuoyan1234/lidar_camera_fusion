@@ -1,13 +1,13 @@
-# lidar_camera_fusion_test
+# lidar_camera_fusion
 
 ROS package for lidar and camera fusion
 
 ## 参数配置
- - 修改`lidar_camera_fusion_test/launch/lidar_camera_fusion_test.launch`
+ - 修改`lidar_camera_fusion/launch/lidar_camera_fusion.launch`
    ```Shell
    <param name ="image_topic" value="/usb_cam/image_rect_color"/>
    <param name ="lidar_topic" value="/velodyne_points"/>
-   <param name ="calibration_file_path" value="$(find lidar_camera_fusion_test)/conf/head_camera.yaml"/>
+   <param name ="calibration_file_path" value="$(find lidar_camera_fusion)/conf/head_camera.yaml"/>
    <param name ="the_sensor_height" value="1.0"/>
    <param name ="the_view_higher_limit" value="2.0"/>
    <param name ="the_view_lower_limit" value="-2.0"/>
@@ -59,9 +59,9 @@ ROS package for lidar and camera fusion
    ```
 
 ## 运行
- - 启动lidar_camera_fusion_test
+ - 启动lidar_camera_fusion
    ```Shell
-   roslaunch lidar_camera_fusion_test lidar_camera_fusion_test.launch
+   roslaunch lidar_camera_fusion lidar_camera_fusion.launch
    ```
  - 融合图像话题
    `/image_fusion`
