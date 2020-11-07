@@ -4,7 +4,7 @@ ROS package for lidar and camera fusion
 
 ## 参数配置
  - 修改`lidar_camera_fusion_test/launch/lidar_camera_fusion_test.launch`
-   ```Python
+   ```Shell
    <param name ="image_topic" value="/usb_cam/image_rect_color"/>
    <param name ="lidar_topic" value="/velodyne_points"/>
    <param name ="calibration_file_path" value="$(find lidar_camera_fusion_test)/conf/head_camera.yaml"/>
@@ -22,7 +22,7 @@ ROS package for lidar and camera fusion
     - the_min_distance/max_distance指明期望的点云相对传感器的限制距离，单位为米。
     - jet_color与点云成像颜色有关。
  - 编写`lidar_camera_fusion/conf/head_camera.yaml`
-   ```Python
+   ```Shell
    %YAML:1.0
    ProjectionMat: !!opencv-matrix
      rows: 3
@@ -39,7 +39,7 @@ ROS package for lidar and camera fusion
    RotationAngleZ: 0
    ```
  - 参数含义如下
-   ```Python
+   ```Shell
    ProjectionMat:
      该3x4矩阵为通过相机内参矩阵标定得到的projection_matrix。
    LidarToCameraMat:
