@@ -67,29 +67,29 @@ ROS package for lidar and camera fusion
    `/image_fusion`
 
 ## 附图
-   ```Python
-                                  \     /    Initial rotation:
-                                   \ |z/     [0 -1  0]
-                                    \|/      [0  0 -1]
-                                     █————x  [1  0  0]
-                                  forward    => (pi/2, -pi/2, 0) Euler angles
-                                    cam #1   Final rotation = Average rotation * Initial rotation
+   ```Shell
+                                \     /    Initial rotation:
+                                 \ |z/     [0 -1  0]
+                                  \|/      [0  0 -1]
+                                   █————x  [1  0  0]
+                                forward    => (pi/2, -pi/2, 0) Euler angles
+                                  cam_1    Final rotation = Average rotation * Initial rotation
   
-                                   █████
-                                 ██     ██
-                   |x          ██    |x   ██
-   [1  0  0]       |          ██     |     ██                 [-1 0  0]
-   [0  0 -1]  z————█ cam #4   █ y————.z     █  cam #2 █————z  [0  0 -1]
-   [0  1  0]                  ██           ██         |       [0 -1  0]
-   => (pi/2, 0, 0)             ██         ██          |x      => (-pi/2, 0, pi)
-                                 ██     ██
-                                   █████
-                                   lidar
+                                 █████
+                               ██     ██
+                   |x        ██    |x   ██
+   [1  0  0]       |        ██     |     ██                [-1 0  0]
+   [0  0 -1]  z————█ cam_4  █ y————.z     █  cam_2 █————z  [0  0 -1]
+   [0  1  0]                ██           ██        |       [0 -1  0]
+   => (pi/2, 0, 0)           ██         ██         |x      => (-pi/2, 0, pi)
+                               ██     ██
+                                 █████
+                                 lidar
 
-                                x————█       [0  1  0]
-                                     |       [0  0 -1]
-                                     |z      [-1 0  0]
-                                    cam #3   => (pi/2, pi/2, 0)
+                              x————█       [0  1  0]
+                                   |       [0  0 -1]
+                                   |z      [-1 0  0]
+                                  cam_3    => (pi/2, pi/2, 0)
    ```
 
 
