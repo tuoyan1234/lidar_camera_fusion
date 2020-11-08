@@ -44,7 +44,17 @@ class LidarImage:
         time_start_transform = time.time()
         pointXYZ_raw = pointcloud2_to_xyz_array(point_cloud_data, remove_nans=True)
         pointXYZ = pointXYZ_raw.copy()
-        pointXYZ = pointXYZ[np.logical_and((pointXYZ[:, 0] > pointXYZ[:, 1]), (pointXYZ[:, 0] > -1 * pointXYZ[:, 1]))]
+        alpha = 90 - 0.5 * the_field_of_view
+        k = math.tan(alpha * math.pi / 180.0)
+        if the_view_number == 1:
+            pointXYZ = pointXYZ[np.logical_and((pointXYZ[:, 0] > k * pointXYZ[:, 1]), (pointXYZ[:, 0] > -k * pointXYZ[:, 1]))]
+        elif the_view_number == 2:
+            pointXYZ = pointXYZ[np.logical_and((-pointXYZ[:, 1] > k * pointXYZ[:, 0]), (-pointXYZ[:, 1] > -k * pointXYZ[:, 0]))]
+        elif the_view_number == 3:
+            pointXYZ = pointXYZ[np.logical_and((-pointXYZ[:, 0] > k * pointXYZ[:, 1]), (-pointXYZ[:, 0] > -k * pointXYZ[:, 1]))]
+        elif the_view_number == 4:
+            pointXYZ = pointXYZ[np.logical_and((pointXYZ[:, 1] > k * pointXYZ[:, 0]), (pointXYZ[:, 1] > -k * pointXYZ[:, 0]))]
+        
         pointXYZ = pointXYZ[np.logical_and((pointXYZ[:, 0] ** 2 + pointXYZ[:, 1] ** 2 > the_min_distance ** 2), (pointXYZ[:, 0] ** 2 + pointXYZ[:, 1] ** 2 < the_max_distance ** 2))]
         pointXYZ = pointXYZ[np.logical_and((pointXYZ[:, 2] > the_view_lower_limit - the_sensor_height), (pointXYZ[:, 2] < the_view_higher_limit - the_sensor_height))]
         
@@ -83,11 +93,16 @@ if __name__ == '__main__':
         
         calib = Calib()
         file_path = rospy.get_param("~calibration_file_path")
+        
+        the_view_number = rospy.get_param("~the_view_number")
+        the_field_of_view = rospy.get_param("~the_field_of_view")
+        
         the_sensor_height = rospy.get_param("~the_sensor_height")
         the_view_higher_limit = rospy.get_param("~the_view_higher_limit")
         the_view_lower_limit = rospy.get_param("~the_view_lower_limit")
         the_min_distance = rospy.get_param("~the_min_distance")
         the_max_distance = rospy.get_param("~the_max_distance")
+        
         jet_color = rospy.get_param("~jet_color")
         
         calib.loadcalib(file_path)

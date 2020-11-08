@@ -18,15 +18,22 @@ ROS package for lidar and camera fusion
    <param name ="image_topic" value="/usb_cam/image_rect_color"/>
    <param name ="lidar_topic" value="/velodyne_points"/>
    <param name ="calibration_file_path" value="$(find lidar_camera_fusion)/conf/head_camera.yaml"/>
+		
+   <param name="the_view_number" value="1"/>
+   <param name="the_field_of_view" value="100"/>
+		
    <param name ="the_sensor_height" value="1.0"/>
    <param name ="the_view_higher_limit" value="2.0"/>
    <param name ="the_view_lower_limit" value="-2.0"/>
-   <param name ="the_min_distance" value="2.0"/>
-   <param name ="the_max_distance" value="50.0"/>
-   <param name ="jet_color" value="22.5"/>
+   <param name ="the_min_distance" value="1.0"/>
+   <param name ="the_max_distance" value="100.0"/>
+
+   <param name ="jet_color" value="30"/>
    ```
     - `image_topic`指明订阅的相机话题。
     - `lidar_topic`指明订阅的激光雷达话题。
+    - `the_view_number`为激光雷达视场区域编号，1为x正向，2为y负向，3为x负向，4为y正向。
+    - `the_field_of_view`为水平视场角，单位度。
     - `the_sensor_height`指明传感器距地面高度，单位为米。
     - `the_view_higher_limit`和`the_view_lower_limit`指明期望的点云相对地面的限制高度，单位为米。
     - `the_min_distance`和`the_max_distance`指明期望的点云相对传感器的限制距离，单位为米。
