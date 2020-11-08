@@ -25,12 +25,12 @@ ROS package for lidar and camera fusion
    <param name ="the_max_distance" value="50.0"/>
    <param name ="jet_color" value="22.5"/>
    ```
-    - image_topic指明订阅的相机话题。
-    - lidar_topic指明订阅的激光雷达话题。
-    - the_sensor_height指明传感器距地面高度，单位为米。
-    - the_view_higher_limit/lower_limit指明期望的点云相对地面的限制高度，单位为米。
-    - the_min_distance/max_distance指明期望的点云相对传感器的限制距离，单位为米。
-    - jet_color与点云成像颜色有关。
+    - `image_topic`指明订阅的相机话题。
+    - `lidar_topic`指明订阅的激光雷达话题。
+    - `the_sensor_height`指明传感器距地面高度，单位为米。
+    - `the_view_higher_limit`和`the_view_lower_limit`指明期望的点云相对地面的限制高度，单位为米。
+    - `the_min_distance`和`the_max_distance`指明期望的点云相对传感器的限制距离，单位为米。
+    - `jet_color`与点云成像颜色有关。
  - 编写`lidar_camera_fusion/conf/head_camera.yaml`
    ```Shell
    %YAML:1.0
@@ -69,7 +69,7 @@ ROS package for lidar and camera fusion
    ```
 
 ## 运行
- - 启动lidar_camera_fusion
+ - 启动`lidar_camera_fusion`
    ```Shell
    roslaunch lidar_camera_fusion lidar_camera_fusion.launch
    ```
