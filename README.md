@@ -63,9 +63,9 @@ ROS package for lidar and camera fusion
    LidarToCameraMat:
      该4x4矩阵为相机与激光雷达坐标系的齐次转换矩阵，左上角3x3为旋转矩阵，右上角3x1为平移矩阵。
      例如：
-     translation = [dx, dy, dz]T
+     Translation = [dx, dy, dz]T
                 [0, -1,  0]
-     rotation = [0,  0, -1]
+     Rotation = [0,  0, -1]
                 [1,  0,  0]
      则：
      LidarToCameraMat = [0, -1,  0, dx]
