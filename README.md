@@ -73,7 +73,7 @@ ROS package for lidar and camera fusion
                         [1,  0,  0, dz]
                         [0,  0,  0,  1]
    RotationAngleX/Y/Z:
-     该值是对LidarToCameraMat矩阵进行修正的旋转角度，初始应设置为0，之后根据标定效果进行细微调整，单位为度。
+     该值是对LidarToCameraMat矩阵进行修正的旋转角度，初始应设置为0，之后根据投影效果进行细微调整，单位为度。
    ```
 
 ## 运行
