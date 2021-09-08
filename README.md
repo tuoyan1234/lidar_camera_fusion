@@ -15,20 +15,20 @@ ROS package for lidar and camera fusion
 ## 参数配置
  - 修改`lidar_camera_fusion/launch/lidar_camera_fusion.launch`
    ```Shell
-   <param name ="image_topic" value="/usb_cam/image_rect_color"/>
-   <param name ="lidar_topic" value="/velodyne_points"/>
-   <param name ="calibration_file_path" value="$(find lidar_camera_fusion)/conf/head_camera.yaml"/>
+   <param name="image_topic" value="/usb_cam/image_rect_color"/>
+   <param name="lidar_topic" value="/velodyne_points"/>
+   <param name="calibration_file_path" value="$(find lidar_camera_fusion)/conf/head_camera.yaml"/>
 		
    <param name="the_view_number" value="1"/>
    <param name="the_field_of_view" value="100"/>
 		
-   <param name ="the_sensor_height" value="1.0"/>
-   <param name ="the_view_higher_limit" value="2.0"/>
-   <param name ="the_view_lower_limit" value="-2.0"/>
-   <param name ="the_min_distance" value="1.0"/>
-   <param name ="the_max_distance" value="100.0"/>
+   <param name="the_sensor_height" value="1.0"/>
+   <param name="the_view_higher_limit" value="2.0"/>
+   <param name="the_view_lower_limit" value="-2.0"/>
+   <param name="the_min_distance" value="1.0"/>
+   <param name="the_max_distance" value="100.0"/>
 
-   <param name ="jet_color" value="30"/>
+   <param name="jet_color" value="30"/>
    ```
     - `image_topic`指明订阅的相机话题。
     - `lidar_topic`指明订阅的激光雷达话题。
